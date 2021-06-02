@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import $ from 'jquery'
 
-import { handleAddQuestion } from '../actions/shared'
+import { handleAddQuestion } from '../../actions/shared'
 
 
 class NewQuestion extends Component {

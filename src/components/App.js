@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import LoadingBar from 'react-redux-loading'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 import Nav from './Nav'
@@ -23,6 +24,7 @@ class App extends Component {
 				{path === '/' && <Redirect to='/login' />}
 
 				<Fragment>
+					<LoadingBar />
 					<div className='container'>
 						{authedUser !== null && <Nav />}
 						
