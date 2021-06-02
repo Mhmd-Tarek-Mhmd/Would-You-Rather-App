@@ -1,5 +1,7 @@
+/*------------------ Global Styles ------------------*/
+* {margin: 0; padding: 0; box-sizing: border-box}
+
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +9,217 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {text-decoration: none; color: #252525; cursor: pointer}
+ul {list-style-type: none}
+
+
+
+/*------------------ Mini Framework ------------------*/
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 150px;
 }
+
+.card {
+  border: 1px #999 solid;
+  width: 400px;
+  margin: 5vh auto;
+  border-radius: 5px
+}
+
+.card-top {
+  background-color: #F9F7F9;
+  border-bottom: 1px #999 solid;
+  padding: 10px
+}
+
+.card-content {padding: 10px}
+.separator {width: 1px; background-color: rgba(0, 0, 0, .3); margin: 0 10px}
+
+.btn:hover {opacity: .9}
+.btn {
+  width: 100%;
+  margin: 10px auto;
+  border-radius: 5px;
+  background-color: #33AD8E;
+  color: #FFF;
+  border-color: transparent;
+  padding: 5px 10px;
+  cursor: pointer
+}
+
+
+
+/*------------------ Component Styles ------------------*/
+
+/* Nav */
+.nav {background-color: #EEECEE; padding: 20px}
+.nav img {width: 11%; margin: 0 15px 0 5px}
+
+.nav ul {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 50%
+}
+
+.nav ul:first-child li:not(:last-child) {padding-right: 15px}
+.nav li {line-height: 47px}
+
+
+/*--- Question ---*/
+.quest-card .card-content {display: flex; align-items: center}
+.quest-card .card-content .card-img img {display: block; margin: auto; width: 100%}
+
+.quest-card .card-content .separator {height: 150px}
+.quest-card .card-content h3 {margin-bottom: 10px}
+
+.quest-card .card-content .opt {margin-bottom: 5px}
+.quest-card .card-content label {font-size: 13px; margin-left: 5px}
+.quest-card .card-content .btn {margin-top: 20px}
+.quest-card .card-content .btn:hover {opacity: .8}
+
+
+/* Question Details */
+.quest-detail .card-content .quest-options {width: 80%}
+
+
+/* Question Info */
+.question-info {cursor: default}
+.question-info .card-content .quest-info {width: 80%}
+.question-info .card-content .quest-info h3 + div {margin-top: 30px;font-size: 10px}
+.question-info .card-content .btn {
+  margin-top: 40px;
+  background-color: transparent;
+  color: #33AD8E;
+  border: 1px solid
+}
+
+
+/* Question Results */
+.quest-result .card-content .separator {height: 250px}
+.quest-result .card-content .quest-votes {width: 90%}
+
+.quest-result .card-content .quest-votes > div:first-of-type {margin-bottom: 10px}
+.quest-result .card-content .quest-votes > div {
+  border: 1px solid #999;
+  background-color: #F9F7F9;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.quest-result .card-content .quest-votes > div span:last-of-type {
+  text-align: center;
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.quest-result .card-content .quest-votes .opt1-result.optionOne,
+.quest-result .card-content .quest-votes .opt2-result.optionTwo {
+  background-color: rgba(51, 173, 141, .5);
+  
+}
+
+.quest-result .card-content .quest-votes .opt1-result.optionOne span:first-of-type,
+.quest-result .card-content .quest-votes .opt2-result.optionTwo span:first-of-type {color: #33AD8E}
+
+.quest-result .card-content .quest-votes > div .progress-bar {
+  background-color: #DDD;
+  border-radius: 5px; 
+  width: 100%;
+  height: 15px;
+  margin: 15px 0 5px;
+  position: relative
+}
+
+.quest-result .card-content .quest-votes > div .progress-bar div {
+  position: absolute;
+  left: 0;
+  background-color: #33AD8E;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 13px;
+  color: #FFF;
+  font-size: 13px;
+  height: 15px
+}
+
+
+
+/*------------------ Pages Style ------------------*/
+
+/* Login */
+.login-card {text-align: center; margin: 10vh auto}
+.login-card .card-img {width: 50%; text-align: center; margin: 10px auto}
+.login-card .card-img img {width: 100%}
+.login-card h2 {color: #E7717D; margin-bottom: 10px} /* #af7487 */
+.login-card p {font-size: 14px}
+.login-card .btn {font-size: 30px; padding: 0}
+.login-card .card-content {position: relative}
+
+.login-card .select .selected {border: 1px solid #999;padding: 5px 0; border-radius: 5px; text-align: left}
+.login-card .select .selected .icon {cursor: pointer; position: relative; left: 275px; bottom: 2px; font-size: 14px}
+.login-card .select .selected .placeholder {display: inline-block; margin-left: 5px; color: #999}
+
+.login-card .select .option .label {position: relative; left: 5px; bottom: 11px}
+.login-card .select .options .option img {width: 10%}
+.login-card .select .options .option {padding: 10px}
+.login-card .select .options .option:hover {cursor: pointer; background-color: #DDD}
+.login-card .select .options {
+  display: none;
+  border: 1px solid #999;
+  text-align: left;
+  position: absolute;
+  top: 77px;
+  width: 95%;
+  background-color: #FFF
+}
+
+.login-card .select .options-adjustment {top: 94px}
+.login-card .select .selected .option {display: inline-block}
+.login-card .select .selected .option span {font-weight: 500}
+.login-card .select .selected .option img {width: 15%}
+.login-card .select .selected .icon-adjustment {left: 355px; bottom: 12px}
+
+
+/* Home */
+.quest-list {border: 1px solid #999; width: 500px; margin: 25px auto; border-radius: 5px}
+
+.quest-list .tabs {display: flex; border-bottom: 1px solid #999}
+.quest-list .tabs span:not(.separator) {cursor: pointer; display: inline-block; width: 100%; text-align: center; line-height: 33px}
+.quest-list .tabs .active {background-color: #F9F7F9; color: #33AD8E}
+.quest-list .tabs .separator {height: 35px; margin: 0}
+
+.quest-list .unanswered > p, .quest-list .answered > p {text-align: center}
+
+.quest-list .unanswered, .quest-list .answered {display: none; margin: 10px auto}
+.quest-list .unanswered.toggle-show, .quest-list .answered.toggle-show {display: block}
+
+
+/* New Question */
+.new-question-card .card-content h3 {margin: 25px 0 15px}
+.new-question-card .card-content input + p {text-align: center; font-weight: bold}
+.new-question-card .card-content input {
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  border-color: #E7E7E7
+}
+
+
+/* Leader Board */
+.leader-board {margin: 5vh auto; vertical-align: center}
+.leader-board caption {margin-bottom: 20px; font-size: 2em}
+.leader-board th, .leader-board td {padding: 5px; font-weight: 500}
+.leader-board img {width: 15%}
+
+.leader-board td:not(.user) {text-align: center}
+.user span {position: relative; top: -14px; left: 5px}
+
+
+/* Not found */
+.not-found {text-align: center; font-size: 25px; font-weight: 500; margin-top: 15vh;}
