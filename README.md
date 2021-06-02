@@ -16,10 +16,10 @@ A competitive game made by react & redux.
 
 ## Screenshots
 
-[](/screenshots/0.png)
-[](/screenshots/1.png)
-[](/screenshots/2.png)
-[](/screenshots/3.png)
-[](/screenshots/4.png)
-[](/screenshots/5.png)
-[](/screenshots/6.png)
+![Screenshot](/screenshots/0.png)
+![Screenshot](/screenshots/1.png)
+![Screenshot](/screenshots/2.png)
+![Screenshot](/screenshots/3.png)
+![Screenshot](/screenshots/4.png)
+![Screenshot](/screenshots/5.png)
+![Screenshot](/screenshots/6.png)
