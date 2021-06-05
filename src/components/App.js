@@ -25,9 +25,9 @@ class App extends Component {
 
 				<Fragment>
 					<LoadingBar />
+					{authedUser !== null && <Nav />}
+					
 					<div className='container'>
-						{authedUser !== null && <Nav />}
-						
 						<Route path='/login' component={Login} />
 						{authedUser === null && path !== '/login' && path !== '/' ? <LoginCard pathname={path} />
 							:	<Switch>

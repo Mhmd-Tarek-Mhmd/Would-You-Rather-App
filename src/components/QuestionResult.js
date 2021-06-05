@@ -25,6 +25,7 @@ class QuestionResult extends Component {
 						<h3>Results:</h3>
 
 						<div className={`opt1-result ${authedUserVote}`}>
+              <span className='pin'></span>
 							<span>{optionOneText}?</span>
 
               <div className='progress-bar'>
@@ -40,6 +41,7 @@ class QuestionResult extends Component {
 						</div>
 
 						<div className={`opt2-result ${authedUserVote}`}>
+              <span className='pin'></span>
 							<span>{optionTwoText}?</span>
 
               <div className='progress-bar'>

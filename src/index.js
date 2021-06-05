@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 
 import 'normalize.css'
 import './index.css'
-import App from './App'
+import App from './components/App'
 
 import reducer from './reducers'
 import middleware from './middleware'

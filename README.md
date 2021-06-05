@@ -5,7 +5,7 @@ A competitive game made by react & redux.
 
 ## Project Setup
 
-* install the dependencies - `npm install`
+* install the dependencies - `npm install` or `npm i --legacy-peer-deps`
 * start the development server - `npm start` or `yarn start`
 
 
@@ -22,4 +22,10 @@ A competitive game made by react & redux.
 ![Screenshot](/screenshots/3.png)
 ![Screenshot](/screenshots/4.png)
 ![Screenshot](/screenshots/5.png)
-![Screenshot](/screenshots/6.png)
+
+
+
+## v1.5
+
+* Adding loading bar.
+* Update UI.

@@ -1,17 +1,35 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import $ from 'jquery'
+import Swal from 'sweetalert2'
 
 import { handleAddQuestion } from '../../actions/shared'
 
 
 class NewQuestion extends Component {
 	handleSubmit = () => {
-		let optionOneText = $('.option-one-text').val()
-		let optionTwoText = $('.option-two-text').val()
+		let optionOneText = $('.option-one-text').val()[0].toUpperCase() + $('.option-one-text').val().slice(1)
+		let optionTwoText = $('.option-two-text').val()[0].toUpperCase() + $('.option-two-text').val().slice(1)
 
-		this.props.dispatch(handleAddQuestion(optionOneText, optionTwoText))
-		this.props.history.push('/home')
+		if (optionOneText.toLowerCase() === optionTwoText.toLowerCase()) {
+			Swal.fire({
+				title: 'Error!',
+				text: 'Please enter the two options to continue',
+				icon: 'error'
+			})
+		}
+
+		if (optionOneText !== '' && optionTwoText!== '' && optionOneText.toLowerCase() !== optionTwoText.toLowerCase()) {
+			this.props.dispatch(handleAddQuestion(optionOneText, optionTwoText))
+			this.props.history.push('/home')
+		}
+		else {
+			Swal.fire({
+				title: 'Error!',
+				text: 'Please enter the two options to continue',
+				icon: 'error'
+			})
+		}
 	}
 
 	render() {

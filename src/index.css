@@ -6,11 +6,13 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale
 }
 
 a {text-decoration: none; color: #252525; cursor: pointer}
 ul {list-style-type: none}
+@font-face {font-family: 'Font Awesome 5 Free'; src: local('fa-regular-400'), url(webfonts/fa-regular-400.woff) format('truetype')}
+@font-face {font-family: 'Font Awesome 5 Free'; src: local('fa-solid-900'), url(webfonts/fa-solid-900.woff) format('truetype')}
 
 
 
@@ -36,6 +38,7 @@ ul {list-style-type: none}
 
 .card-content {padding: 10px}
 .separator {width: 1px; background-color: rgba(0, 0, 0, .3); margin: 0 10px}
+.swal2-styled.swal2-confirm {background-color: #33AD8E !important}
 
 .btn:hover {opacity: .9}
 .btn {
@@ -53,19 +56,75 @@ ul {list-style-type: none}
 
 /*------------------ Component Styles ------------------*/
 
-/* Nav */
-.nav {background-color: #EEECEE; padding: 20px}
-.nav img {width: 11%; margin: 0 15px 0 5px}
+/* Login Card */
+.login-card {text-align: center; margin: 10vh auto}
+.login-card .card-img {width: 50%; text-align: center; margin: 10px auto}
+.login-card .card-img img {width: 100%}
+.login-card h2 {color: #E7717D; margin-bottom: 10px} /* #af7487 */
+.login-card p {font-size: 14px}
+.login-card .btn {font-size: 30px; padding: 0}
+.login-card .card-content {position: relative}
 
-.nav ul {
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 50%
+.login-card .select .selected {border: 1px solid #999;padding: 5px 0; border-radius: 5px; text-align: left}
+.login-card .select .selected .icon {cursor: pointer; position: relative; left: 275px; bottom: 1px; font-size: 14px}
+.login-card .select .selected .icon:before {content: "\f078"; font-weight: 900; font-family: 'Font Awesome 5 Free'}
+.login-card .select .selected .placeholder {display: inline-block; margin-left: 5px; color: #999; font-size: 15px}
+
+.login-card .select .option .label {position: relative; left: 5px; bottom: 11px}
+.login-card .select .options .option img {width: 10%}
+.login-card .select .options .option {padding: 10px}
+.login-card .select .options .option:hover {cursor: pointer; background-color: #DDD}
+.login-card .select .options {
+  display: none;
+  border: 1px solid #999;
+  border-top-color: transparent;
+  text-align: left;
+  position: absolute;
+  top: 77px;
+  width: 95%;
+  background-color: #FFF
 }
 
-.nav ul:first-child li:not(:last-child) {padding-right: 15px}
-.nav li {line-height: 47px}
+.login-card .select .options-adjustment {top: 95px}
+.login-card .select .selected .option {display: inline-block}
+.login-card .select .selected .option span {font-weight: 500}
+.login-card .select .selected .option img {width: 33px}
+.login-card .select .selected .icon-adjustment {left: 355px; bottom: 10px}
+
+
+/* Nav */
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #EEECEE;
+  padding-top: 5px;
+  border-bottom: 2px solid #33AD8E
+}
+
+.nav ul:first-child li {line-height: 30px; padding: 0 5px; width: 140px}
+.nav ul:first-child li:first-child {width: 100px}
+.nav ul:first-child li:not(:last-of-type) {padding-right: 15px}
+.nav ul:last-child li {position: relative; top: -8px}
+.nav ul:last-child li:last-of-type {margin-left: 10px}
+
+.nav img {width: 30px}
+.nav li {display: inline-block; text-align: center}
+.nav li a {padding: 5px; margin-bottom: 1px; display: block}
+.nav li a.active {color: #fff; font-weight: bold; position: relative; z-index: 1}
+
+.nav li a.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0.4em 0.4em 0 0;
+  background-color: #33AD8E;
+  transform: scale(1.2, 1.3) perspective(0.5em) rotateX(4deg);
+  transform-origin: bottom;
+  z-index: -1
+}
 
 
 /*--- Question ---*/
@@ -97,7 +156,7 @@ ul {list-style-type: none}
 }
 
 
-/* Question Results */
+/* Question Result */
 .quest-result .card-content .separator {height: 250px}
 .quest-result .card-content .quest-votes {width: 90%}
 
@@ -120,7 +179,32 @@ ul {list-style-type: none}
 .quest-result .card-content .quest-votes .opt1-result.optionOne,
 .quest-result .card-content .quest-votes .opt2-result.optionTwo {
   background-color: rgba(51, 173, 141, .5);
-  
+  position: relative
+}
+
+.quest-result .card-content .quest-votes .opt1-result.optionOne .pin:before,
+.quest-result .card-content .quest-votes .opt2-result.optionTwo .pin:before {
+  content: '\f08d';
+  font-family: 'Font Awesome 5 Free';
+  color: #222;
+  font-size: 30px;
+  position: absolute;
+  top: -16px;
+  right: -13px;
+  transform: rotate(45deg);
+  display: block
+}
+
+.quest-result .card-content .quest-votes .opt1-result.optionOne:before,
+.quest-result .card-content .quest-votes .opt2-result.optionTwo:before {
+  content: '';
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(45deg, transparent 50%, #33AD8E 50%);
+  border-top-right-radius: 3px;
 }
 
 .quest-result .card-content .quest-votes .opt1-result.optionOne span:first-of-type,
@@ -151,40 +235,6 @@ ul {list-style-type: none}
 
 /*------------------ Pages Style ------------------*/
 
-/* Login */
-.login-card {text-align: center; margin: 10vh auto}
-.login-card .card-img {width: 50%; text-align: center; margin: 10px auto}
-.login-card .card-img img {width: 100%}
-.login-card h2 {color: #E7717D; margin-bottom: 10px} /* #af7487 */
-.login-card p {font-size: 14px}
-.login-card .btn {font-size: 30px; padding: 0}
-.login-card .card-content {position: relative}
-
-.login-card .select .selected {border: 1px solid #999;padding: 5px 0; border-radius: 5px; text-align: left}
-.login-card .select .selected .icon {cursor: pointer; position: relative; left: 275px; bottom: 2px; font-size: 14px}
-.login-card .select .selected .placeholder {display: inline-block; margin-left: 5px; color: #999}
-
-.login-card .select .option .label {position: relative; left: 5px; bottom: 11px}
-.login-card .select .options .option img {width: 10%}
-.login-card .select .options .option {padding: 10px}
-.login-card .select .options .option:hover {cursor: pointer; background-color: #DDD}
-.login-card .select .options {
-  display: none;
-  border: 1px solid #999;
-  text-align: left;
-  position: absolute;
-  top: 77px;
-  width: 95%;
-  background-color: #FFF
-}
-
-.login-card .select .options-adjustment {top: 94px}
-.login-card .select .selected .option {display: inline-block}
-.login-card .select .selected .option span {font-weight: 500}
-.login-card .select .selected .option img {width: 15%}
-.login-card .select .selected .icon-adjustment {left: 355px; bottom: 12px}
-
-
 /* Home */
 .quest-list {border: 1px solid #999; width: 500px; margin: 25px auto; border-radius: 5px}
 
@@ -194,7 +244,6 @@ ul {list-style-type: none}
 .quest-list .tabs .separator {height: 35px; margin: 0}
 
 .quest-list .unanswered > p, .quest-list .answered > p {text-align: center}
-
 .quest-list .unanswered, .quest-list .answered {display: none; margin: 10px auto}
 .quest-list .unanswered.toggle-show, .quest-list .answered.toggle-show {display: block}
 
@@ -212,14 +261,46 @@ ul {list-style-type: none}
 
 
 /* Leader Board */
-.leader-board {margin: 5vh auto; vertical-align: center}
-.leader-board caption {margin-bottom: 20px; font-size: 2em}
-.leader-board th, .leader-board td {padding: 5px; font-weight: 500}
-.leader-board img {width: 15%}
+.leaderboard-card:before {
+  content: '\f091';
+  font-family: 'Font Awesome 5 Free';
+  font-size: 11px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 35px;  
+  height: 35px;
+  background: linear-gradient(135deg, #f2f2f2 50%, transparent 50%);
+  line-height: 20px;
+  padding: 4px
+}
+.leaderboard-card:first-of-type:before {color: gold}
+.leaderboard-card:nth-of-type(2):before {color: silver}
+.leaderboard-card:nth-of-type(3):before {color: #cd7f32} /* after 3d place will be the default color */
 
-.leader-board td:not(.user) {text-align: center}
-.user span {position: relative; top: -14px; left: 5px}
+.leaderboard-card {margin: 5vh auto; display: flex; border-radius: 0; padding: 10px; position: relative}
+.leaderboard-card .card-img {width: 20%; margin: auto}
+
+.leaderboard-card .card-content {padding: 0; width: 50%}
+.leaderboard-card .card-content h2 {margin-bottom: 10px}
+.leaderboard-card .card-content > div {padding: 10px 0; display: flex; justify-content: space-between}
+.leaderboard-card .card-content > div span:last-child {font-weight: 500}
+
+.leaderboard-card .score {border: 1px solid #999;margin: auto}
+.leaderboard-card .score > div {padding: 10px; text-align: center}
+.leaderboard-card .score > div:first-child {border-bottom: 1px solid #999; background-color: #F9F7F9; font-weight: 500}
+.leaderboard-card .score > div:last-child span {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #33AD8E;
+  margin: auto;
+  display: block;
+  font-weight: bold;
+  line-height: 27px;
+  color: #fff
+}
 
 
 /* Not found */
-.not-found {text-align: center; font-size: 25px; font-weight: 500; margin-top: 15vh;}
+.not-found {text-align: center; font-size: 25px; font-weight: 500; margin-top: 15vh}

@@ -23,12 +23,12 @@ class Home extends Component {
 		$('.tabs span').last().addClass('active')
 	}
 
+
 	render() {	
 		const { questions, questionIds, users, authedUser, authedUserAnswers } = this.props
 		let unansweredIds = questionIds.filter(id => !authedUserAnswers.includes(id))
-
-		return (		
-		
+			
+		return (
 			<div className='quest-list'>
 				<div className='tabs'>
 					<span className='active' onClick={this.handleUnansweredClick}>Unanswered Questions</span>

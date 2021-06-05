@@ -8,29 +8,37 @@ class LeaderBoard extends Component {
 		
 
 		return (
-			<table className='leader-board' border='1'>
-				<caption>Leader Board</caption>
+			userIds.map(id =>
+				<div className='leaderboard-card card' key={id}>
+					<div className='card-img'>
+						<img src={users[id].avatarURL} alt='avatar' />
+					</div>
 
-				<thead>
-					<tr>
-						<th>User</th>
-						<th>Answered Questions</th>
-						<th>Created Questions</th>
-						<th>Total</th>
-					</tr>
-				</thead>
-				
-				<tbody>
-					{userIds.map(id =>
-						<tr key={id}>
-							<td className='user'><img src={users[id].avatarURL} alt='avatar' /> <span>{users[id].name}</span></td>
-							<td>{Object.keys(users[id].answers).length}</td>
-							<td>{users[id].questions.length}</td>
-							<td>{(Object.keys(users[id].answers).length) + (users[id].questions.length)}</td>
-						</tr>
-					)}
-				</tbody>
-			</table>
+					<span className='separator'></span>
+
+					<div className='card-content'>
+						<h2>{users[id].name}</h2>
+
+						<div className='answered-questions'>
+							<span>Answered questions</span> <span>{Object.keys(users[id].answers).length}</span>
+						</div>
+
+						<hr />
+
+						<div className='created-questions'>
+							<span>Created questions</span> <span>{users[id].questions.length}</span>
+						</div>
+
+					</div>
+
+					<span className='separator'></span>
+
+					<div className='score'>
+						<div>Score</div>
+						<div><span>{(Object.keys(users[id].answers).length) + (users[id].questions.length)}</span></div>
+					</div>
+				</div>
+			)
 		)
 	}
 }

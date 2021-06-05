@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import $ from 'jquery'
+import Swal from 'sweetalert2'
 
 import { setAuthedUser } from '../actions/authedUser'
 
@@ -31,6 +32,30 @@ class LoginCard extends Component {
 		if (authedUser!==undefined) {
 			this.props.dispatch(setAuthedUser(authedUser))
 			this.setState({isLoggedIn: true})
+
+			if (window.location.pathname === '/login') {
+				Swal.fire({
+					title: 'Welcome in <br> Would You Rather App',
+					html:
+						`<p style='margin: 30px 0; font-weight: 300'>A competitive game made by react & redux</p>
+						<div style='text-align: left'>
+							<h5 style='border-bottom: 1px solid; display: inline-block'>Notes:</h5>
+							<ul style='list-style-type: disc; margin: 5px 0 0 30px; font-size: 14px'>
+								<li>Use the nav bar to navigate between pages of the site.</li>
+								<li>Do not refresh the page or use the address bar of the browser.</li>
+								<li>If you try doing any of the above note, you will be asked to re-login.</li>
+							</ul>
+						</div>`
+				})
+			}
+			
+		}
+		else {
+			Swal.fire({
+				title: 'Error!',
+				text: 'Please sign in to continue',
+				icon: 'error'
+			})
 		}
 	}
 
@@ -56,7 +81,7 @@ class LoginCard extends Component {
 					<div className="select">
 						<div className='selected'>
 							<div className='placeholder'>Select User</div>
-							<span className='icon' onClick={this.handleIconClick}>∨</span>
+							<span className='icon' onClick={this.handleIconClick}></span>
 						</div>
 
 						<div className='options'>
