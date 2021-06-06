@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import $ from 'jquery'
 import Swal from 'sweetalert2'
@@ -21,7 +21,6 @@ class LoginCard extends Component {
 			$('.selected').append(clone)
 	
 			$('.options').slideUp()
-			$('.options').addClass('options-adjustment')
 			$('.icon').addClass('icon-adjustment')
 		})
 	}
@@ -78,13 +77,13 @@ class LoginCard extends Component {
 				<div className='card-content'>
 					<h2>Sign in</h2>
 
-					<div className="select">
+					<div className="custom-select">
 						<div className='selected'>
 							<div className='placeholder'>Select User</div>
 							<span className='icon' onClick={this.handleIconClick}></span>
 						</div>
 
-						<div className='options'>
+						<div className='options full-width top'>
 							{names.map((name, index) =>
 								<div className="option" key={ids[index]} value={ids[index]} onClick={this.handleOptionSelect}>
 									<img src={avatarURLs[index]} alt='avatar'/>
@@ -95,6 +94,12 @@ class LoginCard extends Component {
 					</div>
 
 					<button className='btn' onClick={this.handleLogin}>→</button>
+					{window.location.pathname === '/login' &&
+						<div>
+							<span>OR</span>
+							<Link to='/signup' className='btn signup' >Sign Up</Link>
+						</div>
+					}
 				</div>
 			</div>
 		)

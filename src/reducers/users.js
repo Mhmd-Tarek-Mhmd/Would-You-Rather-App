@@ -1,4 +1,4 @@
-import { RECEIVE_USERS, ADD_USERS_QUESTION, SAVE_USERS_ANSWER } from '../actions/users'
+import { RECEIVE_USERS, ADD_USERS_QUESTION, SAVE_USERS_ANSWER, ADD_NEW_USER } from '../actions/users'
 
 
 export default function users(state = {}, action) {
@@ -30,6 +30,12 @@ export default function users(state = {}, action) {
             [qid]: answer
           }
         }
+			}
+
+		case ADD_NEW_USER :
+			return {
+				...state,
+				[action.user.id]: action.user
 			}
 			
 		default :

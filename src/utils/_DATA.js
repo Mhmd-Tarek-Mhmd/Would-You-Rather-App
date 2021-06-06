@@ -2,7 +2,7 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: '/img/avatar/sarah.svg',
+    avatarURL: '/img/avatar/female0.svg',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: '/img/avatar/tyler.svg',
+    avatarURL: '/img/avatar/male1.svg',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: '/img/avatar/john.svg',
+    avatarURL: '/img/avatar/male0.svg',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -198,5 +198,18 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
 
       res()
     }, 500)
+  })
+}
+
+export function _addUser (user) {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      users = {
+        ...users,
+        [user.id]: user
+      }
+
+      res()
+    }, 1000)
   })
 }

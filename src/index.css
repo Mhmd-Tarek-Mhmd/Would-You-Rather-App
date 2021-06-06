@@ -52,44 +52,55 @@ ul {list-style-type: none}
   cursor: pointer
 }
 
+/* Custom Select Box */
+.custom-select.sm {width: 20%; display: inline-block}
+.custom-select {position: relative}
+.custom-select .selected {border: 1px solid #999; padding: 5px 0; border-radius: 5px; text-align: left}
+.custom-select .selected .icon {cursor: pointer; position: absolute; right: 8px; bottom: 5px; font-size: 14px}
+.custom-select.sm .selected .icon {right: 5px}
+.custom-select .selected .icon:before {content: "\f078"; font-weight: 900; font-family: 'Font Awesome 5 Free'}
+.custom-select .selected .placeholder {display: inline-block; margin-left: 5px; color: #999; font-size: 15px}
+.custom-select.sm .selected .placeholder {font-size: 10px}
+
+.custom-select .option .label {position: relative; left: 5px; bottom: 11px}
+.custom-select .options.full-width .option img {width: 10%}
+
+.custom-select .options .option {padding: 10px}
+.custom-select .options .option:hover {cursor: pointer; background-color: #DDD}
+
+.custom-select .options.top {top: 100%; border-top-color: transparent}
+.custom-select .options.bottom {bottom: 0}
+.custom-select .options.full-width {width: 100%}
+.custom-select .options {
+  display: none;
+  border: 1px solid #999;
+  text-align: left;
+  background-color: #FFF;
+  position: absolute
+}
+
+.custom-select .selected .option {display: inline-block}
+.custom-select .selected .option span {font-weight: 500}
+.custom-select .selected .option img {width: 33px; margin-left: 10px}
+.custom-select .selected .icon-adjustment {bottom: 15px; right: 10px}
+
 
 
 /*------------------ Component Styles ------------------*/
 
-/* Login Card */
-.login-card {text-align: center; margin: 10vh auto}
-.login-card .card-img {width: 50%; text-align: center; margin: 10px auto}
-.login-card .card-img img {width: 100%}
-.login-card h2 {color: #E7717D; margin-bottom: 10px} /* #af7487 */
-.login-card p {font-size: 14px}
-.login-card .btn {font-size: 30px; padding: 0}
-.login-card .card-content {position: relative}
+/* Login Card & Signup Page */
+.login-card, .signup-card {text-align: center; margin: 10vh auto}
+.login-card .card-img, .signup-card .card-img {width: 50%; text-align: center; margin: 10px auto}
+.login-card .card-content .btn, .signup-card .card-content .btn {font-size: 30px; padding: 0}
+.login-card h2, .signup-card h2 {color: #E7717D; margin-bottom: 10px} /* #af7487 */
+.login-card img, .signup-card img {width: 100%}
+.login-card p, .signup-card p {font-size: 14px}
 
-.login-card .select .selected {border: 1px solid #999;padding: 5px 0; border-radius: 5px; text-align: left}
-.login-card .select .selected .icon {cursor: pointer; position: relative; left: 275px; bottom: 1px; font-size: 14px}
-.login-card .select .selected .icon:before {content: "\f078"; font-weight: 900; font-family: 'Font Awesome 5 Free'}
-.login-card .select .selected .placeholder {display: inline-block; margin-left: 5px; color: #999; font-size: 15px}
+.login-card .card-content .signup {display: block; font-size: initial; padding: 10px 0; font-weight: bold}
 
-.login-card .select .option .label {position: relative; left: 5px; bottom: 11px}
-.login-card .select .options .option img {width: 10%}
-.login-card .select .options .option {padding: 10px}
-.login-card .select .options .option:hover {cursor: pointer; background-color: #DDD}
-.login-card .select .options {
-  display: none;
-  border: 1px solid #999;
-  border-top-color: transparent;
-  text-align: left;
-  position: absolute;
-  top: 77px;
-  width: 95%;
-  background-color: #FFF
-}
-
-.login-card .select .options-adjustment {top: 95px}
-.login-card .select .selected .option {display: inline-block}
-.login-card .select .selected .option span {font-weight: 500}
-.login-card .select .selected .option img {width: 33px}
-.login-card .select .selected .icon-adjustment {left: 355px; bottom: 10px}
+.signup-card .card-content input {border-radius: 5px; border-color: #E7E7E7; padding: 10px}
+.signup-card .card-content .name {display: block; width: 100%; margin-bottom: 10px}
+.signup-card .card-content  .username {width: 79%; margin-left: 1%}
 
 
 /* Nav */
@@ -241,7 +252,7 @@ ul {list-style-type: none}
 .quest-list .tabs {display: flex; border-bottom: 1px solid #999}
 .quest-list .tabs span:not(.separator) {cursor: pointer; display: inline-block; width: 100%; text-align: center; line-height: 33px}
 .quest-list .tabs .active {background-color: #F9F7F9; color: #33AD8E}
-.quest-list .tabs .separator {height: 35px; margin: 0}
+.quest-list .tabs .separator {height: 35px; margin: 0; width: 2px}
 
 .quest-list .unanswered > p, .quest-list .answered > p {text-align: center}
 .quest-list .unanswered, .quest-list .answered {display: none; margin: 10px auto}

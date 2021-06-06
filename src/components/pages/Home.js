@@ -53,7 +53,7 @@ class Home extends Component {
 				</div>
 
 				<div className='answered'>
-					{authedUserAnswers.length === 0 && (<p>No results found. What about answer a question?!</p>)}
+					{authedUserAnswers.length === 0 && (<p>No results found. What about answering a question?!</p>)}
 					{authedUserAnswers.map(id => 
 						<QuestionResult
 							key={id}
