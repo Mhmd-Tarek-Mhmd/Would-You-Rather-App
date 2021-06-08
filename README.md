@@ -1,18 +1,18 @@
 # Would You Rather App
 
-A competitive game made by react & redux.__
+A competitive game made by react & redux.
 
 
 ## Project Setup
 
 * install the dependencies - `npm install` or `npm i --legacy-peer-deps`
-* start the development server - `npm start` or `yarn start`__
+* start the development server - `npm start` or `yarn start`
 
 
 ## Project Data
 
 * You can find it in [here](src/utils/_DATA.js)
-* And its README file [here](src/utils/DATA_README.md)__
+* And its README file [here](src/utils/DATA_README.md)
 
 
 ## Screenshots
@@ -23,14 +23,14 @@ A competitive game made by react & redux.__
 ![Screenshot](/screenshots/3.png)
 ![Screenshot](/screenshots/4.png)
 ![Screenshot](/screenshots/5.png)
-![Screenshot](/screenshots/6.png)____
+![Screenshot](/screenshots/6.png)
 
 
 
 ## v1.5
 
 * Adding loading bar.
-* Update UI.__
+* Update UI.
 
 
 ## v2.0
