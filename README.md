@@ -33,7 +33,6 @@ A competitive game made by react & redux.
 * Update UI.
 
 
-
 ## v2.0
 
 * Adding functionality to add new users.
