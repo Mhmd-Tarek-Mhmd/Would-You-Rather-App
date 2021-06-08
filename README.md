@@ -7,7 +7,7 @@ A competitive game made by react & redux.
 
 * install the dependencies - `npm install` or `npm i --legacy-peer-deps`
 * start the development server - `npm start` or `yarn start`
-&nbsp;&nbsp;
+<br/><br/>
 
 ## Project Data
 
