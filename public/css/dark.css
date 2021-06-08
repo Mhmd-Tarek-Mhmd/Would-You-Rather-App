@@ -1,0 +1,39 @@
+/*------------------ Global Colors ------------------*/
+:root {
+	--mainColor: #7367f0;
+	--secondColor: #1f1f1f;
+	--borderColor: #838486
+}
+
+body {background-color: #121212; color: #DADADA} /*DADADA 262626 */
+a {color: #fff}
+input {background-color: #DADADA}
+
+
+
+/*------------------ Mini Framework Colors ------------------*/
+.card {background-color: #1d1d1d} /*287180 5C5D61*/
+.separator {background-color: #DADADA}
+.swal2-popup {background: #222 !important}
+.swal2-title, .swal2-html-container {color: #DADADA !important}
+
+.custom-select .options {background-color: #121212}
+.custom-select .options .option:hover {background-color: #1d1d1d}
+
+
+
+/*------------------ Component Colors ------------------*/
+.nav {background-color: #333}
+
+.leaderboard-card:before {background: linear-gradient(135deg, #333 50%, transparent 50%)}
+
+.quest-result .card-content .quest-votes .opt1-result,
+.quest-result .card-content .quest-votes .opt2-result {background-color: #333}
+
+.quest-result .card-content .quest-votes .opt1-result.optionOne,
+.quest-result .card-content .quest-votes .opt2-result.optionTwo {background-color: #7367f09c}
+
+.quest-result .card-content .quest-votes .opt1-result.optionOne .pin:before,
+.quest-result .card-content .quest-votes .opt2-result.optionTwo .pin:before {color: #fff5f5}
+
+.theme-toggler-container .theme-icon:before {content: '\f186'; color: #F4F1C9}

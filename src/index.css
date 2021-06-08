@@ -9,73 +9,72 @@ body {
   -moz-osx-font-smoothing: grayscale
 }
 
-a {text-decoration: none; color: #252525; cursor: pointer}
+a {text-decoration: none; cursor: pointer}
 ul {list-style-type: none}
-@font-face {font-family: 'Font Awesome 5 Free'; src: local('fa-regular-400'), url(webfonts/fa-regular-400.woff) format('truetype')}
-@font-face {font-family: 'Font Awesome 5 Free'; src: local('fa-solid-900'), url(webfonts/fa-solid-900.woff) format('truetype')}
+@font-face {font-family: 'Font Awesome 5 Free'; src: local('fa-regular-400'), url(webfonts/fa-regular-400.woff) format('truetype'); font-display: swap}
+@font-face {font-family: 'Font Awesome 5 Free'; src: local('fa-solid-900'), url(webfonts/fa-solid-900.woff) format('truetype'); font-display: swap}
 
-
+.quest-result .card-content .quest-votes > div .progress-bar {background-color: #DDD}
 
 /*------------------ Mini Framework ------------------*/
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 150px;
+  padding: 0 150px
 }
 
 .card {
-  border: 1px #999 solid;
+  border: 1px var(--borderColor) solid;
   width: 400px;
   margin: 5vh auto;
   border-radius: 5px
 }
 
 .card-top {
-  background-color: #F9F7F9;
-  border-bottom: 1px #999 solid;
+  background-color: var(--secondColor);
+  border-bottom: 1px var(--borderColor) solid;
   padding: 10px
 }
 
 .card-content {padding: 10px}
-.separator {width: 1px; background-color: rgba(0, 0, 0, .3); margin: 0 10px}
-.swal2-styled.swal2-confirm {background-color: #33AD8E !important}
+.separator {width: 1px; margin: 0 10px}
+.swal2-styled.swal2-confirm {background-color: var(--mainColor) !important}
 
 .btn:hover {opacity: .9}
 .btn {
   width: 100%;
   margin: 10px auto;
   border-radius: 5px;
-  background-color: #33AD8E;
-  color: #FFF;
+  background-color: var(--mainColor);
   border-color: transparent;
   padding: 5px 10px;
+  color: #fff;
   cursor: pointer
 }
 
 /* Custom Select Box */
 .custom-select.sm {width: 20%; display: inline-block}
 .custom-select {position: relative}
-.custom-select .selected {border: 1px solid #999; padding: 5px 0; border-radius: 5px; text-align: left}
+.custom-select .selected {border: 1px solid var(--borderColor); padding: 5px 0; border-radius: 5px; text-align: left}
 .custom-select .selected .icon {cursor: pointer; position: absolute; right: 8px; bottom: 5px; font-size: 14px}
 .custom-select.sm .selected .icon {right: 5px}
 .custom-select .selected .icon:before {content: "\f078"; font-weight: 900; font-family: 'Font Awesome 5 Free'}
-.custom-select .selected .placeholder {display: inline-block; margin-left: 5px; color: #999; font-size: 15px}
+.custom-select .selected .placeholder {display: inline-block; margin-left: 5px; color: var(--borderColor); font-size: 15px}
 .custom-select.sm .selected .placeholder {font-size: 10px}
 
 .custom-select .option .label {position: relative; left: 5px; bottom: 11px}
 .custom-select .options.full-width .option img {width: 10%}
 
-.custom-select .options .option {padding: 10px}
-.custom-select .options .option:hover {cursor: pointer; background-color: #DDD}
+.custom-select .options .option {padding: 10px; text-transform: capitalize}
+.custom-select .options .option:hover {cursor: pointer}
 
 .custom-select .options.top {top: 100%; border-top-color: transparent}
 .custom-select .options.bottom {bottom: 0}
 .custom-select .options.full-width {width: 100%}
 .custom-select .options {
   display: none;
-  border: 1px solid #999;
+  border: 1px solid var(--borderColor);
   text-align: left;
-  background-color: #FFF;
   position: absolute
 }
 
@@ -88,6 +87,23 @@ ul {list-style-type: none}
 
 /*------------------ Component Styles ------------------*/
 
+/* Theme Toggler */
+.theme-toggler-container.opened {left: 0}
+.theme-toggler-container {
+  position: fixed;
+  top: 25%;
+  left: -33px;
+  font-family: 'Font Awesome 5 Free';
+  background-color: var(--secondColor);
+  color: #fff
+}
+
+.theme-icon, .gear {padding: 10px; cursor: pointer; display: inline-block}
+.theme-toggler-container .theme-icon {border-right: 1px solid var(--borderColor); padding-left: 5px}
+.theme-toggler-container .gear {background-color: var(--mainColor)}
+.theme-toggler-container .gear:before {content:"\f013"}
+
+
 /* Login Card & Signup Page */
 .login-card, .signup-card {text-align: center; margin: 10vh auto}
 .login-card .card-img, .signup-card .card-img {width: 50%; text-align: center; margin: 10px auto}
@@ -98,7 +114,7 @@ ul {list-style-type: none}
 
 .login-card .card-content .signup {display: block; font-size: initial; padding: 10px 0; font-weight: bold}
 
-.signup-card .card-content input {border-radius: 5px; border-color: #E7E7E7; padding: 10px}
+.signup-card .card-content input {border-radius: 5px; padding: 10px}
 .signup-card .card-content .name {display: block; width: 100%; margin-bottom: 10px}
 .signup-card .card-content  .username {width: 79%; margin-left: 1%}
 
@@ -107,21 +123,21 @@ ul {list-style-type: none}
 .nav {
   display: flex;
   justify-content: space-evenly;
-  background-color: #EEECEE;
   padding-top: 5px;
-  border-bottom: 2px solid #33AD8E
+  border-bottom: 2px solid var(--mainColor)
 }
 
 .nav ul:first-child li {line-height: 30px; padding: 0 5px; width: 140px}
 .nav ul:first-child li:first-child {width: 100px}
 .nav ul:first-child li:not(:last-of-type) {padding-right: 15px}
 .nav ul:last-child li {position: relative; top: -8px}
+.nav ul:last-child li:first-of-type {text-transform: capitalize}
 .nav ul:last-child li:last-of-type {margin-left: 10px}
 
 .nav img {width: 30px}
 .nav li {display: inline-block; text-align: center}
 .nav li a {padding: 5px; margin-bottom: 1px; display: block}
-.nav li a.active {color: #fff; font-weight: bold; position: relative; z-index: 1}
+.nav li a.active {font-weight: bold; position: relative; z-index: 1}
 
 .nav li a.active::before {
   content: "";
@@ -131,7 +147,7 @@ ul {list-style-type: none}
   bottom: 0;
   left: 0;
   border-radius: 0.4em 0.4em 0 0;
-  background-color: #33AD8E;
+  background-color: var(--mainColor);
   transform: scale(1.2, 1.3) perspective(0.5em) rotateX(4deg);
   transform-origin: bottom;
   z-index: -1
@@ -162,7 +178,7 @@ ul {list-style-type: none}
 .question-info .card-content .btn {
   margin-top: 40px;
   background-color: transparent;
-  color: #33AD8E;
+  color: var(--mainColor);
   border: 1px solid
 }
 
@@ -173,8 +189,8 @@ ul {list-style-type: none}
 
 .quest-result .card-content .quest-votes > div:first-of-type {margin-bottom: 10px}
 .quest-result .card-content .quest-votes > div {
-  border: 1px solid #999;
-  background-color: #F9F7F9;
+  border: 1px solid var(--borderColor);
+  background-color: var(--secondColor);
   border-radius: 5px;
   padding: 10px;
   font-weight: 500;
@@ -188,16 +204,12 @@ ul {list-style-type: none}
 }
 
 .quest-result .card-content .quest-votes .opt1-result.optionOne,
-.quest-result .card-content .quest-votes .opt2-result.optionTwo {
-  background-color: rgba(51, 173, 141, .5);
-  position: relative
-}
+.quest-result .card-content .quest-votes .opt2-result.optionTwo {position: relative}
 
 .quest-result .card-content .quest-votes .opt1-result.optionOne .pin:before,
 .quest-result .card-content .quest-votes .opt2-result.optionTwo .pin:before {
   content: '\f08d';
   font-family: 'Font Awesome 5 Free';
-  color: #222;
   font-size: 30px;
   position: absolute;
   top: -16px;
@@ -214,15 +226,14 @@ ul {list-style-type: none}
   top: 0px;
   width: 30px;
   height: 30px;
-  background: linear-gradient(45deg, transparent 50%, #33AD8E 50%);
+  background: linear-gradient(45deg, transparent 50%, var(--mainColor) 50%);
   border-top-right-radius: 3px;
 }
 
 .quest-result .card-content .quest-votes .opt1-result.optionOne span:first-of-type,
-.quest-result .card-content .quest-votes .opt2-result.optionTwo span:first-of-type {color: #33AD8E}
+.quest-result .card-content .quest-votes .opt2-result.optionTwo span:first-of-type {color: var(--mainColor)}
 
 .quest-result .card-content .quest-votes > div .progress-bar {
-  background-color: #DDD;
   border-radius: 5px; 
   width: 100%;
   height: 15px;
@@ -233,11 +244,10 @@ ul {list-style-type: none}
 .quest-result .card-content .quest-votes > div .progress-bar div {
   position: absolute;
   left: 0;
-  background-color: #33AD8E;
+  background-color: var(--mainColor);
   border-radius: 5px;
   text-align: center;
   line-height: 13px;
-  color: #FFF;
   font-size: 13px;
   height: 15px
 }
@@ -247,11 +257,11 @@ ul {list-style-type: none}
 /*------------------ Pages Style ------------------*/
 
 /* Home */
-.quest-list {border: 1px solid #999; width: 500px; margin: 25px auto; border-radius: 5px}
+.quest-list {border: 1px solid var(--borderColor); width: 500px; margin: 25px auto; border-radius: 5px}
 
-.quest-list .tabs {display: flex; border-bottom: 1px solid #999}
+.quest-list .tabs {display: flex; border-bottom: 1px solid var(--borderColor)}
 .quest-list .tabs span:not(.separator) {cursor: pointer; display: inline-block; width: 100%; text-align: center; line-height: 33px}
-.quest-list .tabs .active {background-color: #F9F7F9; color: #33AD8E}
+.quest-list .tabs .active {background-color: var(--secondColor); color: var(--mainColor)}
 .quest-list .tabs .separator {height: 35px; margin: 0; width: 2px}
 
 .quest-list .unanswered > p, .quest-list .answered > p {text-align: center}
@@ -266,8 +276,7 @@ ul {list-style-type: none}
   margin: 10px 0;
   width: 100%;
   border-radius: 5px;
-  padding: 10px;
-  border-color: #E7E7E7
+  padding: 10px
 }
 
 
@@ -281,7 +290,6 @@ ul {list-style-type: none}
   top: 0px;
   width: 35px;  
   height: 35px;
-  background: linear-gradient(135deg, #f2f2f2 50%, transparent 50%);
   line-height: 20px;
   padding: 4px
 }
@@ -297,19 +305,18 @@ ul {list-style-type: none}
 .leaderboard-card .card-content > div {padding: 10px 0; display: flex; justify-content: space-between}
 .leaderboard-card .card-content > div span:last-child {font-weight: 500}
 
-.leaderboard-card .score {border: 1px solid #999;margin: auto}
+.leaderboard-card .score {border: 1px solid var(--borderColor); margin: auto}
 .leaderboard-card .score > div {padding: 10px; text-align: center}
-.leaderboard-card .score > div:first-child {border-bottom: 1px solid #999; background-color: #F9F7F9; font-weight: 500}
+.leaderboard-card .score > div:first-child {border-bottom: 1px solid var(--borderColor); background-color: var(--secondColor); font-weight: 500}
 .leaderboard-card .score > div:last-child span {
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  background-color: #33AD8E;
+  background-color: var(--mainColor);
   margin: auto;
   display: block;
   font-weight: bold;
   line-height: 27px;
-  color: #fff
 }
 
 

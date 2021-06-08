@@ -13,6 +13,7 @@ import Question from './pages/Question'
 import Result from './pages/Result'
 import SignUp from './pages/SignUp'
 import LoginCard from './LoginCard'
+import ThemeToggler from './ThemeToggler'
 
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
 				<Fragment>
 					<LoadingBar />
 					{authedUser !== null && <Nav />}
+					<ThemeToggler />
 					
 					<div className='container'>
 						{authedUser === null && !paths.includes(path) ? <LoginCard pathname={path} />

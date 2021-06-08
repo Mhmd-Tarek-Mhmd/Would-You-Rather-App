@@ -11,7 +11,8 @@ A competitive game made by react & redux.
 
 ## Project Data
 
-* You can find it [here](src/utils/DATA_README.md)
+* You can find it in [here](src/utils/_DATA.js)
+* And its README file [here](src/utils/DATA_README.md)
 
 
 ## Screenshots
@@ -22,6 +23,7 @@ A competitive game made by react & redux.
 ![Screenshot](/screenshots/3.png)
 ![Screenshot](/screenshots/4.png)
 ![Screenshot](/screenshots/5.png)
+![Screenshot](/screenshots/6.png)
 
 
 
@@ -29,3 +31,10 @@ A competitive game made by react & redux.
 
 * Adding loading bar.
 * Update UI.
+
+
+
+## v2.0
+
+* Adding functionality to add new users.
+* Dark theme.

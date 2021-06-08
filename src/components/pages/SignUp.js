@@ -29,7 +29,7 @@ class SignUp extends Component {
 
 
 		if ( name !== '' && username !== '' && avatar !== undefined && !userIds.includes(username.toLowerCase()) ) {
-			dispatch(handleAddNewUser(name[0].toUpperCase() + name.slice(1), username.toLowerCase(), avatar))
+			dispatch(handleAddNewUser(name[0].toUpperCase() + name.slice(1).toLowerCase(), username.toLowerCase(), avatar))
 			history.push('/login')
 		}
 		else if (userIds.includes(username.toLowerCase())) {
