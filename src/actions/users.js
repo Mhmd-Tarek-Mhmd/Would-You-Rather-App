@@ -23,15 +23,6 @@ export function addUsersQuestion({ authedUser, id }) {
   }
 }
 
-export function saveUsersAnswer({ authedUser, qid, answer }) {
-  return {
-    type: SAVE_USERS_ANSWER,
-    authedUser,
-    qid,
-    answer
-  }
-}
-
 function addNewUser(user) {
   return {
     type: ADD_NEW_USER,

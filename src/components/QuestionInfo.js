@@ -6,14 +6,14 @@ import { Link, withRouter } from 'react-router-dom'
 class QuestionInfo extends Component {
 	toQuestion = (e, id) => {
 		e.preventDefault()
-		this.props.history.push(`/question/${id}`)
+		this.props.history.push(`/questions/${id}`)
 	}
 
 	render() {
 		const { author, avatar, id, optionOneText, optionTwoText } = this.props
 
 		return (
-			<Link to={`/question/${id}`} className='question-info'>
+			<Link to={`/questions/${id}`} className='question-info'>
 				<div className='quest-card card'>
 					<div className='card-top'>
 						<h5>{author} asks:</h5>

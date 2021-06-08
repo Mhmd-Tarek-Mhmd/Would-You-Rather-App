@@ -40,7 +40,7 @@ class App extends Component {
 									<Route path='/home' component={Home} />
 									<Route path='/add' component={NewQuestion} />
 									<Route path='/leaderboard' component={LeaderBoard} />
-									<Route path='/question/:id' component={Question} />
+									<Route path='/questions/:id' component={Question} />
 									<Route path='/result/:id' component={Result} />
 									<Route render={() => <p className='not-found'>Page not found</p>} />
 								</Switch>

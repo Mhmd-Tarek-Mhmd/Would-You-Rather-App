@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import $ from 'jquery'
 
-import { handleSaveAnswer } from '../actions/shared'
+import { handleSaveAnswer } from '../actions/questions'
 
 
 class QuestionDetails extends Component {
@@ -11,7 +11,7 @@ class QuestionDetails extends Component {
 		let option = $('input[type="radio"]:checked').attr('value');
 		e.preventDefault();
 
-		this.props.dispatch(handleSaveAnswer(id, option))
+		this.props.handleSaveAnswer(id, option)
 		this.props.history.push(`/result/${id}`)
 	}
 
@@ -53,4 +53,4 @@ class QuestionDetails extends Component {
 }
 
 
-export default withRouter(connect()(QuestionDetails))
+export default withRouter(connect(null, { handleSaveAnswer })(QuestionDetails))

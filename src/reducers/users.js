@@ -1,4 +1,5 @@
-import { RECEIVE_USERS, ADD_USERS_QUESTION, SAVE_USERS_ANSWER, ADD_NEW_USER } from '../actions/users'
+import { RECEIVE_USERS, ADD_USERS_QUESTION, ADD_NEW_USER } from '../actions/users'
+import { SAVE_ANSWER } from '../actions/questions'
 
 
 export default function users(state = {}, action) {
@@ -20,7 +21,7 @@ export default function users(state = {}, action) {
         }
 			}
 
-		case SAVE_USERS_ANSWER :
+		case SAVE_ANSWER :
 			return {
         ...state,
         [authedUser]: {

@@ -8,7 +8,7 @@ class Question extends Component {
   render() {
     const { questions, users, history } = this.props
 		let questionsIds = Object.keys(questions)
-    let id = history.location.pathname.substr(10)
+    let id = history.location.pathname.substr(11)
   
     return (
 			!questionsIds.includes(id)

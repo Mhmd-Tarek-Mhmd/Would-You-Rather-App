@@ -14,7 +14,7 @@ ul {list-style-type: none}
 @font-face {font-family: 'Font Awesome 5 Free'; src: local('fa-regular-400'), url(webfonts/fa-regular-400.woff) format('truetype'); font-display: swap}
 @font-face {font-family: 'Font Awesome 5 Free'; src: local('fa-solid-900'), url(webfonts/fa-solid-900.woff) format('truetype'); font-display: swap}
 
-.quest-result .card-content .quest-votes > div .progress-bar {background-color: #DDD}
+
 
 /*------------------ Mini Framework ------------------*/
 .container {
@@ -38,7 +38,7 @@ ul {list-style-type: none}
 
 .card-content {padding: 10px}
 .separator {width: 1px; margin: 0 10px}
-.swal2-styled.swal2-confirm {background-color: var(--mainColor) !important}
+
 
 .btn:hover {opacity: .9}
 .btn {
@@ -48,7 +48,7 @@ ul {list-style-type: none}
   background-color: var(--mainColor);
   border-color: transparent;
   padding: 5px 10px;
-  color: #fff;
+  color: #FFF;
   cursor: pointer
 }
 
@@ -238,6 +238,7 @@ ul {list-style-type: none}
   width: 100%;
   height: 15px;
   margin: 15px 0 5px;
+  background-color: #DDD;
   position: relative
 }
 

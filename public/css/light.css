@@ -1,31 +1,34 @@
 /*------------------ Global Colors ------------------*/
-:root {
+:root[class="light"] {
 	--mainColor: #33AD8E;
 	--secondColor: #F9F7F9;
 	--borderColor: #999;
 }
 
-body {background-color: #fff; color: #000}
-a {color: #252525}
-input {border-color: #E7E7E7}
+.light body {background-color: #fff; color: #000}
+.light a:not(.btn) {color: #252525}
+.light input[type='text']  {border-color: #E7E7E7}
+
 
 
 /*------------------ Mini Framework Colors ------------------*/
-.custom-select .options {background-color: #FFF}
-.custom-select .options .option:hover {background-color: #DDD}
-.separator {background-color: rgba(0, 0, 0, .3)}
+.light .custom-select .options {background-color: #FFF}
+.light .custom-select .options .option:hover {background-color: #DDD}
+.light .separator {background-color: rgba(0, 0, 0, .3)}
+.swal2-styled.swal2-confirm {background-color: #33AD8E !important}
+
 
 
 /*------------------ Component Colors ------------------*/
-.nav {background-color: #EEECEE}
-.nav li a.active,
-.leaderboard-card .score > div:last-child span {color: #fff}
-.leaderboard-card:before {background: linear-gradient(135deg, #f2f2f2 50%, transparent 50%)}
+.light .nav {background-color: #EEECEE}
+.light .nav li a.active,
+.light .leaderboard-card .score > div:last-child span {color: #fff}
+.light .leaderboard-card:before {background: linear-gradient(135deg, #f2f2f2 50%, transparent 50%)}
 
-.quest-result .card-content .quest-votes .opt1-result.optionOne .pin:before,
-.quest-result .card-content .quest-votes .opt2-result.optionTwo .pin:before {color: #222}
+.light .quest-result .card-content .quest-votes .opt1-result.optionOne .pin:before,
+.light .quest-result .card-content .quest-votes .opt2-result.optionTwo .pin:before {color: #222}
 
-.quest-result .card-content .quest-votes .opt1-result.optionOne,
-.quest-result .card-content .quest-votes .opt2-result.optionTwo {background-color: #33ad8ea3}
+.light .quest-result .card-content .quest-votes .opt1-result.optionOne,
+.light .quest-result .card-content .quest-votes .opt2-result.optionTwo {background-color: #33ad8ea3}
 
-.theme-toggler-container .theme-icon:before {content: '\f185'; color: #FDB813} /*F9D71C*/
+.light .theme-toggler-container .theme-icon:before {content: '\f185'; color: #FDB813} /*F9D71C*/

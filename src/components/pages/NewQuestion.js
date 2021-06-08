@@ -1,17 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import $ from 'jquery'
 import Swal from 'sweetalert2'
 
 import { handleAddQuestion } from '../../actions/shared'
 
 
 class NewQuestion extends Component {
-	handleSubmit = () => {
-		let optionOneText = $('.option-one-text').val()
-		let optionTwoText = $('.option-two-text').val()
+	constructor(props) {
+    super(props);
+    // create a ref to store the textInput DOM element
+    this.optionOne = React.createRef()
+    this.optionTwo = React.createRef()
+  }
 
-		if ($('.option-one-text').val().toLowerCase() === $('.option-two-text').val().toLowerCase()) {
+	handleSubmit = () => {
+		let optionOneText = this.optionOne.current.value
+		let optionTwoText = this.optionTwo.current.value
+
+		if (optionOneText.toLowerCase() === optionTwoText.toLowerCase()) {
 			Swal.fire({
 				title: 'Error!',
 				text: 'Please enter the two options to continue',
@@ -20,7 +26,7 @@ class NewQuestion extends Component {
 		}
 
 		if (optionOneText !== '' && optionTwoText!== '' && optionOneText.toLowerCase() !== optionTwoText.toLowerCase()) {
-			this.props.dispatch(handleAddQuestion(optionOneText[0].toUpperCase() + optionOneText.slice(1), optionTwoText[0].toUpperCase() + optionTwoText.slice(1)))
+			this.props.handleAddQuestion(optionOneText[0].toUpperCase() + optionOneText.slice(1), optionTwoText[0].toUpperCase() + optionTwoText.slice(1))
 			this.props.history.push('/home')
 		}
 		else {
@@ -44,9 +50,9 @@ class NewQuestion extends Component {
 			
 					<h3>Would you rather ...</h3>
 					
-					<input type='text' className='option-one-text' placeholder='Enter option one text' />
+					<input type='text' className='option-one-text' placeholder='Enter option one text' ref={this.optionOne} />
 					<p>OR</p>
-					<input type='text' className='option-two-text' placeholder='Enter option two text' />
+					<input type='text' className='option-two-text' placeholder='Enter option two text' ref={this.optionTwo} />
 				
 					<input type='submit' className='btn' onClick={this.handleSubmit}/>				
 				</div>
@@ -56,4 +62,4 @@ class NewQuestion extends Component {
 }
 
 
-export default connect()(NewQuestion)
+export default connect(null, { handleAddQuestion })(NewQuestion)

@@ -1,6 +1,10 @@
+import { showLoading, hideLoading } from 'react-redux-loading'
+
+import { saveQuestionAnswer } from '../utils/api'
+
 export const RECEIVE_QUESTION =  'RECEIVE_QUESTION'
 export const ADD_QUESTION =  'ADD_QUESTION'
-export const SAVE_QUESTION_ANSWER =  'SAVE_QUESTION_ANSWER'
+export const SAVE_ANSWER =  'SAVE_ANSWER'
 
 
 export function receiveQuestions(questions) {
@@ -19,9 +23,20 @@ export function addQuestion(question) {
 
 export function saveAnswer({ authedUser, qid, answer }) {
   return {
-    type: SAVE_QUESTION_ANSWER,
+    type: SAVE_ANSWER,
     authedUser,
     qid,
     answer
+  }
+}
+
+export function handleSaveAnswer(qid, answer) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState()
+    
+    dispatch(showLoading())
+    return saveQuestionAnswer({ authedUser: authedUser, qid, answer })
+      .then(() => dispatch(saveAnswer({ authedUser: authedUser, qid, answer })))
+      .finally(() => dispatch(hideLoading()))
   }
 }

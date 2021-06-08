@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 class QuestionResult extends Component {
   render() {
-    const { author, avatar, optionOneText, optionTwoText, optionOneVotes, optionTwoVotes, usersLength, authedUserVote } = this.props
+    const { author, avatar, optionOneText, optionTwoText, optionOneVotes, optionTwoVotes, usersLength, authedUserVote, authedUserName } = this.props
     let opt1Style = {width: `calc(${optionOneVotes * 100 / usersLength}%)`}
     let opt2Style = {width: `calc(${optionTwoVotes * 100 / usersLength}%)`}
 
@@ -29,15 +29,29 @@ class QuestionResult extends Component {
 							<span>{optionOneText}?</span>
 
               <div className='progress-bar'>
-                <div className='opt1' style={opt1Style}>
-                  {optionOneVotes !== 0
-                    ? Number.parseFloat(optionOneVotes * 100 / usersLength).toPrecision(3) + '%'
-                    : null
-                  }
-                  </div>
+                {authedUserName === author
+                  ? <div className='opt1' style={{width: `calc(${optionOneVotes * 100 / (usersLength-1)}%)`}}>
+                      {optionOneVotes !== 0
+                        ? Number.parseFloat(optionOneVotes * 100 / (usersLength-1)).toPrecision(3) + '%'
+                        : null
+                      }
+                    </div>
+
+                  : <div className='opt1' style={opt1Style}>
+                      {optionOneVotes !== 0
+                        ? Number.parseFloat(optionOneVotes * 100 / usersLength).toPrecision(3) + '%'
+                        : null
+                      }
+                    </div>
+                }
               </div>
 
-							<span>{optionOneVotes} out of {usersLength} votes</span>
+							<span>
+                {authedUserName === author
+                  ? `${optionOneVotes} out of ${usersLength - 1} votes`
+                  : `${optionOneVotes} out of ${usersLength} votes`
+                }
+              </span>
 						</div>
 
 						<div className={`opt2-result ${authedUserVote}`}>
@@ -45,15 +59,29 @@ class QuestionResult extends Component {
 							<span>{optionTwoText}?</span>
 
               <div className='progress-bar'>
-                <div className='opt2' style={opt2Style}>
-                  {optionTwoVotes !== 0
-                    ? Number.parseFloat(optionTwoVotes * 100 / usersLength).toPrecision(3) + '%'
-                    : null
-                  }
-                  </div>
+                {authedUserName === author
+                  ? <div className='opt2' style={{width: `calc(${optionTwoVotes * 100 / (usersLength-1)}%)`}}>
+                      {optionTwoVotes !== 0
+                        ? Number.parseFloat(optionTwoVotes * 100 / (usersLength-1)).toPrecision(3) + '%'
+                        : null
+                      }
+                    </div>
+
+                  : <div className='opt2' style={opt2Style}>
+                      {optionTwoVotes !== 0
+                        ? Number.parseFloat(optionTwoVotes * 100 / usersLength).toPrecision(3) + '%'
+                        : null
+                      }
+                    </div>
+                }
               </div>
 
-							<span>{optionTwoVotes} out of {usersLength} votes</span>
+              <span>
+                {authedUserName === author
+                  ? `${optionTwoVotes} out of ${usersLength - 1} votes`
+                  : `${optionTwoVotes} out of ${usersLength} votes`
+                }
+              </span>							
 						</div>
 					
 					</div>
