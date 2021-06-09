@@ -66,9 +66,8 @@ class Home extends Component {
 							optionOneVotes={questions[id].optionOne.votes.length}
 							optionTwoVotes={questions[id].optionTwo.votes.length}
 
-							usersLength={Object.keys(users).length}
 							authedUserVote={users[authedUser].answers[id]}
-							authedUserName={users[authedUser].name}
+							
 						/>
 					)}	
 				</div>

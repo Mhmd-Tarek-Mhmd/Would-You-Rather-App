@@ -23,9 +23,7 @@ class Result extends Component {
             optionOneVotes={questions[id].optionOne.votes.length}
             optionTwoVotes={questions[id].optionTwo.votes.length}
     
-            usersLength={Object.keys(users).length}
             authedUserVote={users[authedUser].answers[id]}
-            authedUserName={users[authedUser].name}       
 					/>
         : <p className='not-found'>Result not found</p>
     )
