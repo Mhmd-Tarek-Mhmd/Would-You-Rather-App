@@ -2,6 +2,10 @@
 
 A competitive game made by react & redux.
 
+## Live Site
+
+* Live Site [URL](https://frosty-brattain-2da890.netlify.app/login)
+
 
 ## Project Setup
 
