@@ -1,0 +1,59 @@
+.Card {
+  width: 75%;
+  margin: auto;
+  max-width: 100%;
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+}
+@media (min-width: 550px) {
+  .Card {
+    width: 500px;
+  }
+}
+
+.CardBody {
+  padding: 15px;
+}
+
+.CardHead {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 5px 15px;
+  color: var(--headings);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: var(--tertiary);
+  border-bottom: 1px solid var(--gray);
+}
+.Variant {
+  font-size: inherit;
+}
+
+@media (min-width: 550px) {
+  .CardHead {
+    font-size: 1.3em;
+  }
+  .CardBody.flex {
+    gap: 15px;
+    display: flex;
+  }
+  .CardBody > *:not(.CardImage) {
+    flex: 1;
+  }
+  .CardImage {
+    width: 25%;
+    padding-right: 10px;
+    border-right: 1px solid var(--separator-color);
+  }
+}
+
+@media (max-width: 549px) {
+  .CardImage {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .CardImage img {
+    width: 100px;
+  }
+}

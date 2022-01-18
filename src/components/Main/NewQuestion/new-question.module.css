@@ -1,0 +1,33 @@
+.strong {
+  display: block;
+  font-size: 1.1em;
+  margin: 35px 0 30px;
+}
+
+.OR {
+  margin: 10px 0px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  color: var(--headings);
+}
+.OR::before,
+.OR::after {
+  content: "";
+  top: 50%;
+  height: 1px;
+  position: absolute;
+  width: calc(50% - 30px);
+  transform: translateY(-50%);
+  background-color: var(--separator-color);
+}
+.OR::before {
+  left: calc(-2.5% + 15px);
+}
+.OR::after {
+  right: calc(-2.5% + 15px);
+}
+
+.btn {
+  margin-top: 25px;
+}

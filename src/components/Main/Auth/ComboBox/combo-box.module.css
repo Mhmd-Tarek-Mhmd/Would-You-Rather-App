@@ -1,0 +1,61 @@
+.ComboBox {
+  cursor: default;
+  padding: 5px 10px;
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+}
+.placeholder {
+  font-size: 14px;
+}
+
+.listBox {
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  cursor: pointer;
+  position: absolute;
+  overflow: auto;
+  height: 150px;
+  outline: none;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 30%);
+}
+.listBox.slideUp {
+  bottom: calc(100% + 1px);
+}
+.listBox.slideDown {
+  top: calc(100% + 1px);
+}
+.ComboBox[aria-expanded="false"] .listBox {
+  display: none;
+}
+
+.wrapper {
+  gap: 10px;
+  display: grid;
+  text-align: left;
+  grid-template-columns: 1fr 10px;
+}
+.wrapper > div {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.Option {
+  gap: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  will-change: background-color;
+  transition: background-color 0.3s;
+  background-color: var(--tertiary);
+}
+.Option.focus,
+.Option:hover {
+  background-color: var(--secondary);
+}
+
+.Option * {
+  pointer-events: none;
+}

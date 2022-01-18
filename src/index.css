@@ -1,324 +1,131 @@
-/*------------------ Global Styles ------------------*/
-* {margin: 0; padding: 0; box-sizing: border-box}
+/*
+** Simple reset
+*/
+
+:root {
+  --gray: #585858;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+input {
+  border: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+}
+
+input {
+  border: 1px solid var(--gray);
+}
+::placeholder {
+  color: var(--gray);
+}
+.dark ::placeholder {
+  color: #898989;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*
+** Global styles
+*/
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  color: var(--body-color);
+  will-change: background-color;
+  transition: background-color 0.3s;
+  background-color: var(--body-bg);
+  font-family: "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+strong {
+  color: var(--headings);
+}
+img {
+  height: auto;
+  max-width: 100%;
 }
 
-a {text-decoration: none; cursor: pointer}
-ul {list-style-type: none}
-@font-face {font-family: 'Font Awesome 5 Free'; src: local('fa-regular-400'), url(webfonts/fa-regular-400.woff) format('truetype'); font-display: swap}
-@font-face {font-family: 'Font Awesome 5 Free'; src: local('fa-solid-900'), url(webfonts/fa-solid-900.woff) format('truetype'); font-display: swap}
+/*
+  Themes
+*/
 
-.quest-result .card-content .quest-votes > div .progress-bar {background-color: #DDD}
+html {
+  --body-bg: #fff;
+  --body-color: #424242;
+  --headings: #212121;
+  --separator-color: rgb(51 51 51 / 30%);
 
-/*------------------ Mini Framework ------------------*/
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 150px
+  --primary: 51 173 142;
+  --secondary: #ededed;
+  --tertiary: #f9f9f9;
 }
 
-.card {
-  border: 1px var(--borderColor) solid;
-  width: 400px;
-  margin: 5vh auto;
-  border-radius: 5px
+html.dark {
+  --body-bg: #212121;
+  --body-color: #e2e2e2;
+  --headings: #fff;
+  --separator-color: #333;
+
+  --primary: 115 103 240;
+  --secondary: #1f1f1f;
+  --tertiary: #1d1d1d;
 }
 
-.card-top {
-  background-color: var(--secondColor);
-  border-bottom: 1px var(--borderColor) solid;
-  padding: 10px
-}
+/*
+  Utilities
+*/
 
-.card-content {padding: 10px}
-.separator {width: 1px; margin: 0 10px}
-.swal2-styled.swal2-confirm {background-color: var(--mainColor) !important}
-
-.btn:hover {opacity: .9}
-.btn {
-  width: 100%;
-  margin: 10px auto;
-  border-radius: 5px;
-  background-color: var(--mainColor);
-  border-color: transparent;
-  padding: 5px 10px;
-  color: #fff;
-  cursor: pointer
-}
-
-/* Custom Select Box */
-.custom-select.sm {width: 20%; display: inline-block}
-.custom-select {position: relative}
-.custom-select .selected {border: 1px solid var(--borderColor); padding: 5px 0; border-radius: 5px; text-align: left}
-.custom-select .selected .icon {cursor: pointer; position: absolute; right: 8px; bottom: 5px; font-size: 14px}
-.custom-select.sm .selected .icon {right: 5px}
-.custom-select .selected .icon:before {content: "\f078"; font-weight: 900; font-family: 'Font Awesome 5 Free'}
-.custom-select .selected .placeholder {display: inline-block; margin-left: 5px; color: var(--borderColor); font-size: 15px}
-.custom-select.sm .selected .placeholder {font-size: 10px}
-
-.custom-select .option .label {position: relative; left: 5px; bottom: 11px}
-.custom-select .options.full-width .option img {width: 10%}
-
-.custom-select .options .option {padding: 10px; text-transform: capitalize}
-.custom-select .options .option:hover {cursor: pointer}
-
-.custom-select .options.top {top: 100%; border-top-color: transparent}
-.custom-select .options.bottom {bottom: 0}
-.custom-select .options.full-width {width: 100%}
-.custom-select .options {
-  display: none;
-  border: 1px solid var(--borderColor);
-  text-align: left;
-  position: absolute
-}
-
-.custom-select .selected .option {display: inline-block}
-.custom-select .selected .option span {font-weight: 500}
-.custom-select .selected .option img {width: 33px; margin-left: 10px}
-.custom-select .selected .icon-adjustment {bottom: 15px; right: 10px}
-
-
-
-/*------------------ Component Styles ------------------*/
-
-/* Theme Toggler */
-.theme-toggler-container.opened {left: 0}
-.theme-toggler-container {
-  position: fixed;
-  top: 25%;
-  left: -33px;
-  font-family: 'Font Awesome 5 Free';
-  background-color: var(--secondColor);
-  color: #fff
-}
-
-.theme-icon, .gear {padding: 10px; cursor: pointer; display: inline-block}
-.theme-toggler-container .theme-icon {border-right: 1px solid var(--borderColor); padding-left: 5px}
-.theme-toggler-container .gear {background-color: var(--mainColor)}
-.theme-toggler-container .gear:before {content:"\f013"}
-
-
-/* Login Card & Signup Page */
-.login-card, .signup-card {text-align: center; margin: 10vh auto}
-.login-card .card-img, .signup-card .card-img {width: 50%; text-align: center; margin: 10px auto}
-.login-card .card-content .btn, .signup-card .card-content .btn {font-size: 30px; padding: 0}
-.login-card h2, .signup-card h2 {color: #E7717D; margin-bottom: 10px} /* #af7487 */
-.login-card img, .signup-card img {width: 100%}
-.login-card p, .signup-card p {font-size: 14px}
-
-.login-card .card-content .signup {display: block; font-size: initial; padding: 10px 0; font-weight: bold}
-
-.signup-card .card-content input {border-radius: 5px; padding: 10px}
-.signup-card .card-content .name {display: block; width: 100%; margin-bottom: 10px}
-.signup-card .card-content  .username {width: 79%; margin-left: 1%}
-
-
-/* Nav */
-.nav {
+.space-between-flex {
   display: flex;
-  justify-content: space-evenly;
-  padding-top: 5px;
-  border-bottom: 2px solid var(--mainColor)
+  align-items: center;
+  justify-content: space-between;
+}
+.center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.nav ul:first-child li {line-height: 30px; padding: 0 5px; width: 140px}
-.nav ul:first-child li:first-child {width: 100px}
-.nav ul:first-child li:not(:last-of-type) {padding-right: 15px}
-.nav ul:last-child li {position: relative; top: -8px}
-.nav ul:last-child li:first-of-type {text-transform: capitalize}
-.nav ul:last-child li:last-of-type {margin-left: 10px}
-
-.nav img {width: 30px}
-.nav li {display: inline-block; text-align: center}
-.nav li a {padding: 5px; margin-bottom: 1px; display: block}
-.nav li a.active {font-weight: bold; position: relative; z-index: 1}
-
-.nav li a.active::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 0.4em 0.4em 0 0;
-  background-color: var(--mainColor);
-  transform: scale(1.2, 1.3) perspective(0.5em) rotateX(4deg);
-  transform-origin: bottom;
-  z-index: -1
-}
-
-
-/*--- Question ---*/
-.quest-card .card-content {display: flex; align-items: center}
-.quest-card .card-content .card-img img {display: block; margin: auto; width: 100%}
-
-.quest-card .card-content .separator {height: 150px}
-.quest-card .card-content h3 {margin-bottom: 10px}
-
-.quest-card .card-content .opt {margin-bottom: 5px}
-.quest-card .card-content label {font-size: 13px; margin-left: 5px}
-.quest-card .card-content .btn {margin-top: 20px}
-.quest-card .card-content .btn:hover {opacity: .8}
-
-
-/* Question Details */
-.quest-detail .card-content .quest-options {width: 80%}
-
-
-/* Question Info */
-.question-info {cursor: default}
-.question-info .card-content .quest-info {width: 80%}
-.question-info .card-content .quest-info h3 + div {margin-top: 30px;font-size: 10px}
-.question-info .card-content .btn {
-  margin-top: 40px;
-  background-color: transparent;
-  color: var(--mainColor);
-  border: 1px solid
-}
-
-
-/* Question Result */
-.quest-result .card-content .separator {height: 250px}
-.quest-result .card-content .quest-votes {width: 90%}
-
-.quest-result .card-content .quest-votes > div:first-of-type {margin-bottom: 10px}
-.quest-result .card-content .quest-votes > div {
-  border: 1px solid var(--borderColor);
-  background-color: var(--secondColor);
-  border-radius: 5px;
-  padding: 10px;
-  font-weight: 500;
-}
-
-.quest-result .card-content .quest-votes > div span:last-of-type {
+.text-center {
   text-align: center;
-  display: block;
-  font-size: 13px;
-  font-weight: bold;
 }
 
-.quest-result .card-content .quest-votes .opt1-result.optionOne,
-.quest-result .card-content .quest-votes .opt2-result.optionTwo {position: relative}
-
-.quest-result .card-content .quest-votes .opt1-result.optionOne .pin:before,
-.quest-result .card-content .quest-votes .opt2-result.optionTwo .pin:before {
-  content: '\f08d';
-  font-family: 'Font Awesome 5 Free';
-  font-size: 30px;
-  position: absolute;
-  top: -16px;
-  right: -13px;
-  transform: rotate(45deg);
-  display: block
-}
-
-.quest-result .card-content .quest-votes .opt1-result.optionOne:before,
-.quest-result .card-content .quest-votes .opt2-result.optionTwo:before {
-  content: '';
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(45deg, transparent 50%, var(--mainColor) 50%);
-  border-top-right-radius: 3px;
-}
-
-.quest-result .card-content .quest-votes .opt1-result.optionOne span:first-of-type,
-.quest-result .card-content .quest-votes .opt2-result.optionTwo span:first-of-type {color: var(--mainColor)}
-
-.quest-result .card-content .quest-votes > div .progress-bar {
-  border-radius: 5px; 
+.btn,
+.input {
   width: 100%;
-  height: 15px;
-  margin: 15px 0 5px;
-  position: relative
-}
-
-.quest-result .card-content .quest-votes > div .progress-bar div {
-  position: absolute;
-  left: 0;
-  background-color: var(--mainColor);
+  padding: 5px 10px;
   border-radius: 5px;
-  text-align: center;
-  line-height: 13px;
-  font-size: 13px;
-  height: 15px
 }
-
-
-
-/*------------------ Pages Style ------------------*/
-
-/* Home */
-.quest-list {border: 1px solid var(--borderColor); width: 500px; margin: 25px auto; border-radius: 5px}
-
-.quest-list .tabs {display: flex; border-bottom: 1px solid var(--borderColor)}
-.quest-list .tabs span:not(.separator) {cursor: pointer; display: inline-block; width: 100%; text-align: center; line-height: 33px}
-.quest-list .tabs .active {background-color: var(--secondColor); color: var(--mainColor)}
-.quest-list .tabs .separator {height: 35px; margin: 0; width: 2px}
-
-.quest-list .unanswered > p, .quest-list .answered > p {text-align: center}
-.quest-list .unanswered, .quest-list .answered {display: none; margin: 10px auto}
-.quest-list .unanswered.toggle-show, .quest-list .answered.toggle-show {display: block}
-
-
-/* New Question */
-.new-question-card .card-content h3 {margin: 25px 0 15px}
-.new-question-card .card-content input + p {text-align: center; font-weight: bold}
-.new-question-card .card-content input {
-  margin: 10px 0;
-  width: 100%;
-  border-radius: 5px;
-  padding: 10px
-}
-
-
-/* Leader Board */
-.leaderboard-card:before {
-  content: '\f091';
-  font-family: 'Font Awesome 5 Free';
-  font-size: 11px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 35px;  
-  height: 35px;
-  line-height: 20px;
-  padding: 4px
-}
-.leaderboard-card:first-of-type:before {color: gold}
-.leaderboard-card:nth-of-type(2):before {color: silver}
-.leaderboard-card:nth-of-type(3):before {color: #cd7f32} /* after 3d place will be the default color */
-
-.leaderboard-card {margin: 5vh auto; display: flex; border-radius: 0; padding: 10px; position: relative}
-.leaderboard-card .card-img {width: 20%; margin: auto}
-
-.leaderboard-card .card-content {padding: 0; width: 50%}
-.leaderboard-card .card-content h2 {margin-bottom: 10px}
-.leaderboard-card .card-content > div {padding: 10px 0; display: flex; justify-content: space-between}
-.leaderboard-card .card-content > div span:last-child {font-weight: 500}
-
-.leaderboard-card .score {border: 1px solid var(--borderColor); margin: auto}
-.leaderboard-card .score > div {padding: 10px; text-align: center}
-.leaderboard-card .score > div:first-child {border-bottom: 1px solid var(--borderColor); background-color: var(--secondColor); font-weight: 500}
-.leaderboard-card .score > div:last-child span {
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  background-color: var(--mainColor);
-  margin: auto;
-  display: block;
+.btn {
+  color: #fff;
+  cursor: pointer;
   font-weight: bold;
-  line-height: 27px;
+  will-change: background-color;
+  transition: 0.3s background-color;
+  background-color: rgb(var(--primary));
 }
-
-
-/* Not found */
-.not-found {text-align: center; font-size: 25px; font-weight: 500; margin-top: 15vh}
+.btn:hover {
+  background-color: rgba(var(--primary) / 90%);
+}

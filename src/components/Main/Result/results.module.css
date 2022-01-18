@@ -1,0 +1,76 @@
+.title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/*
+  Option
+*/
+
+.Option,
+.voted {
+  padding: 15px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+.Option:first-of-type {
+  margin-bottom: 10px;
+}
+.Option {
+  border-color: var(--gray);
+  background-color: var(--tertiary);
+}
+.Option.voted {
+  position: relative;
+  border-color: rgb(var(--primary));
+  background-color: rgba(var(--primary) / 30%);
+}
+.voted h4 {
+  color: rgb(var(--primary));
+}
+
+.info {
+  font-weight: bold;
+  text-align: center;
+  color: var(--headings);
+}
+
+.vote {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  width: 45px;
+  height: 45px;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #4e4e4e;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: #debf2e;
+}
+
+/*
+  ProgressBar
+*/
+
+.ProgressBar,
+.Progress {
+  height: 25px;
+  margin: 15px 0 5px;
+  border-radius: 5px;
+}
+
+.ProgressBar {
+  background-color: var(--secondary);
+}
+
+.Progress {
+  color: white;
+  font-weight: bold;
+  justify-content: flex-end !important;
+  background-color: rgb(var(--primary));
+}
+
+.percentage {
+  padding: 0 5px;
+}

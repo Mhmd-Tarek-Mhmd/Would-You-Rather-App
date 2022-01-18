@@ -1,23 +1,27 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
-import 'normalize.css'
-import './index.css'
-import App from './components/App'
+import store from "./store";
 
-import reducer from './reducers'
-import middleware from './middleware'
-import { handleInitialData } from './actions/shared'
-
-
-const store = createStore(reducer, middleware)
-store.dispatch(handleInitialData())
+import "./index.css";
+import App from "./components/App";
+import Modal from "./components/Modal";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-)
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById("root-app")
+);
+
+ReactDOM.render(
+  <BrowserRouter>
+    <Provider store={store}>
+      <Modal />
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById("root-modal")
+);

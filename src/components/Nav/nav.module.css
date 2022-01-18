@@ -1,0 +1,115 @@
+.Nav {
+  padding: 0 24px;
+  min-height: 50px;
+  position: relative;
+  background-color: var(--secondary);
+  border-bottom: 2px solid rgb(var(--primary));
+}
+
+.Nav a {
+  z-index: 1;
+  padding: 5px;
+  outline: none;
+  display: block;
+  font-weight: bold;
+  position: relative;
+  color: var(--headings);
+}
+.Nav a:focus-visible,
+.Nav a:hover,
+.active {
+  color: white !important;
+}
+.Nav a:focus-visible::before,
+.Nav a:hover::before,
+.active::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  padding-bottom: 40px;
+  transform-origin: bottom;
+  border-radius: 5px 5px 0 0;
+  background-color: rgb(var(--primary));
+  transform: scale(1.3) perspective(0.5em) rotateX(4deg);
+}
+.btn {
+  line-height: 1;
+  font-size: 20px;
+  font-weight: bold;
+  transform: scale(2, 1.3);
+}
+
+/*
+  [1] Links
+*/
+
+@media (min-width: 700px) {
+  .Links {
+    gap: 25px;
+  }
+  .btn {
+    display: none;
+  }
+}
+
+@media (max-width: 699px) {
+  .Links {
+    left: 20px;
+    z-index: 1;
+    width: 25%;
+    position: absolute;
+    text-align: center;
+    top: calc(100% + 3px);
+    display: grid !important;
+    background-color: inherit;
+    grid-template-columns: 1fr;
+    border: 1px solid rgb(var(--primary));
+  }
+  .Links.hide {
+    display: none !important;
+  }
+
+  .Links a {
+    will-change: background-color;
+    transition: background-color 0.3s;
+  }
+  .Links a::before {
+    display: none;
+  }
+  .Links a:focus-visible,
+  .Links a:hover,
+  .active {
+    background-color: rgb(var(--primary));
+  }
+}
+
+@media (max-width: 549px) {
+  .Links {
+    left: 50%;
+    width: 90%;
+    border-radius: 5px;
+    transform: translateX(-50%);
+  }
+}
+
+/*
+  [2] User Controls
+*/
+
+.UserControls {
+  gap: 10px;
+}
+
+.UserControls img {
+  width: 30px;
+}
+
+@media (max-width: 500px) {
+  .UserControls p {
+    display: none;
+  }
+}

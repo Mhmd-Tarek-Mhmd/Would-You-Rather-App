@@ -1,0 +1,64 @@
+.container {
+  width: 75%;
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+}
+@media (min-width: 550px) {
+  .container {
+    width: 500px;
+  }
+}
+
+.tabs {
+  border-bottom: 1px solid var(--gray);
+}
+.cards {
+  gap: 15px;
+  display: grid;
+  padding: 15px;
+}
+.card {
+  width: 100%;
+}
+
+.wrapper {
+  display: grid;
+}
+@media (max-width: 549px) {
+  .wrapper {
+    text-align: center;
+  }
+}
+
+.text {
+  font-size: 14px;
+  margin: 10px 0 20px;
+}
+
+.toParent {
+  height: 30px;
+  border: 1px solid;
+  border-radius: 5px;
+  align-self: flex-end;
+  will-change: opacity;
+  transition: 0.3s opacity;
+  color: rgb(var(--primary));
+}
+.toParent:hover {
+  opacity: 0.8;
+}
+
+.links {
+  width: 50%;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 5px;
+  will-change: background-color;
+}
+
+.active {
+  cursor: initial;
+  color: rgb(var(--primary));
+  background-color: var(--tertiary);
+}

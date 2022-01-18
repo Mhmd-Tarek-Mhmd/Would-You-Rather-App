@@ -1,0 +1,53 @@
+.Auth {
+  margin-top: 1rem !important;
+}
+
+.Auth h1 {
+  font-size: 1em;
+}
+
+.Auth p {
+  font-size: initial;
+  font-weight: initial;
+}
+
+.Auth h2 {
+  margin: 10px 0 20px;
+}
+
+.logo {
+  margin-top: 15px;
+}
+
+.wrapper {
+  gap: 10px;
+  display: grid;
+  margin-bottom: 15px;
+  align-items: center;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: repeat(2, 40px);
+}
+
+.OR {
+  margin: 15px 0;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  color: var(--headings);
+}
+.OR::before,
+.OR::after {
+  content: "";
+  top: 50%;
+  height: 1px;
+  position: absolute;
+  width: calc(50% - 30px);
+  transform: translateY(-50%);
+  background-color: var(--separator-color);
+}
+.OR::before {
+  left: calc(-2.5% + 15px);
+}
+.OR::after {
+  right: calc(-2.5% + 15px);
+}
