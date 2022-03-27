@@ -4,7 +4,7 @@ A competitive game made by react & redux.
 
 ## Live Site
 
-* Live Site [URL](https://frosty-brattain-2da890.netlify.app/login)
+* Live Site [URL](https://would-you-rather-old-game.netlify.app/)
 
 
 ## Project Setup
