@@ -2,6 +2,8 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
 import store from "./store";
 
 import "./index.css";
@@ -25,3 +27,6 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById("root-modal")
 );
+
+
+serviceWorkerRegistration.register();

@@ -1,0 +1,20 @@
+{
+  "short_name": "Would You Rather",
+  "name": "Would You Rather App",
+  "icons": [
+    {
+      "src": "img/icons/icon192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/icons/icon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffaec9",
+  "background_color": "#000"
+}
