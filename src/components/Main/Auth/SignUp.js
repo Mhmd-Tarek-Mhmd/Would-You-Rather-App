@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { handleAddUser, openModal } from "../../../store/actions";
@@ -75,6 +75,10 @@ function SignUp({ users, handleAddUser, openModal }) {
       <button className="btn" onClick={handleAdd}>
         Submit
       </button>
+      <div className={styles.OR}>OR</div>
+      <Link to="/sign-in" className="btn" style={{ display: "block" }}>
+        Back to Sign In
+      </Link>
     </>
   );
 }
