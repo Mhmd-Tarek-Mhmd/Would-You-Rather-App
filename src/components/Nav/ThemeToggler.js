@@ -10,12 +10,13 @@ function ThemeToggler({ theme, handleSetTheme }) {
 
   return (
     <button
+      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
       className="center-flex"
-      aria-label="Toggle theme"
       onClick={handleToggle}
     >
       {theme === "light" ? (
         <svg
+          aria-hidden='true'
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
           width="26"
@@ -27,7 +28,12 @@ function ThemeToggler({ theme, handleSetTheme }) {
           />
         </svg>
       ) : (
-        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+        <svg
+          aria-hidden='true'
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+        >
           <path
             fill="#FDB813"
             fillRule="evenodd"
