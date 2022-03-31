@@ -7,7 +7,7 @@ import { handleAddUser, openModal } from "../../../store/actions";
 import styles from "./auth.module.css";
 import ComboBox, { Option } from "./ComboBox";
 
-function SignUp({ handleAddUser, openModal }) {
+function SignUp({ users, handleAddUser, openModal }) {
   const [avatar, setAvatar] = useState("");
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
@@ -18,7 +18,7 @@ function SignUp({ handleAddUser, openModal }) {
   const items = ["male0", "male1", "female0", "female1"];
 
   const handleAdd = () => {
-    if (avatar.length && name.length && username.length) {
+    if (avatar.length && name.length && username.length && !Object.keys(users).includes(username)) {
       handleAddUser(
         username.toLowerCase(),
         name.replace(/^\w|\s\w/g, (c) => c.toUpperCase()).replaceAll(),
@@ -29,6 +29,7 @@ function SignUp({ handleAddUser, openModal }) {
       if (!name.length) openModal("Please enter your name");
       else if (!username.length) openModal("Please enter your username");
       else if (!avatar.length) openModal("Please select your avatar");
+      else openModal("This username is already exist.");
     }
   };
 
@@ -78,4 +79,9 @@ function SignUp({ handleAddUser, openModal }) {
   );
 }
 
-export default connect(null, { handleAddUser, openModal })(SignUp);
+export default connect(
+  (state) => ({
+    users: state.users,
+  }),
+  { handleAddUser, openModal }
+)(SignUp);
