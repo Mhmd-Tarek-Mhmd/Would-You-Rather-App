@@ -35,7 +35,7 @@ function Links() {
         className={`center-flex ${styles.Links} ${isHide ? styles.hide : ""}`}
       >
         {linksText.map((link, i) => (
-          <li>
+          <li key={link}>
             <NavLink
               tabIndex="0"
               className={({ isActive }) => (isActive ? styles.active : "")}
